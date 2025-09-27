@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpcxsg7aihrus"]
+
+[ext_resource type="Script" uid="uid://dglvetblwwdy1" path="res://scripts/bow_attack.gd" id="1_l5ydy"]
+[ext_resource type="Texture2D" uid="uid://oajncor2q32w" path="res://assets/attacks/Bow attack.png" id="1_qvuqu"]
+
+[sub_resource type="Animation" id="Animation_l5ydy"]
+resource_name = "Bow_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.16666667, 0.3, 0.43333334, 0.53333336, 0.5964089),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_ixew5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0y6ww"]
+_data = {
+&"Bow_attack": SubResource("Animation_l5ydy"),
+&"RESET": SubResource("Animation_ixew5")
+}
+
+[node name="Bow_attack" type="Node2D"]
+script = ExtResource("1_l5ydy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -1)
+texture = ExtResource("1_qvuqu")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0y6ww")
+}
+
+[node name="Attack_cooldown" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="Attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

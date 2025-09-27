@@ -5,7 +5,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -8)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true

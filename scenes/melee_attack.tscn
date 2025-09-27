@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn6u002uyce51"]
+
+[ext_resource type="Script" uid="uid://0ujackdjq06m" path="res://scripts/melee_attack.gd" id="1_bd5lp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtaw4"]
+radius = 9.899495
+
+[node name="Melee-attack" type="Area2D"]
+script = ExtResource("1_bd5lp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_xtaw4")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

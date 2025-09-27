@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 @export var speed = 130
+@export var hp = 3
+@export var atk = 50
+@export var crit_chance = 20
+@export var crit_damage = 1.5
 @onready var animated_sprite = $AnimatedSprite2D
 
 func update_animations():

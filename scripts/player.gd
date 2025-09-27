@@ -9,13 +9,9 @@ extends CharacterBody2D
 
 func update_animations():
 	if Input.is_action_pressed("left"):
-		animated_sprite.play("walk")
+		animated_sprite.play("walk_left")
 	elif Input.is_action_pressed("right"):
-		animated_sprite.play("walk")
-	elif Input.is_action_pressed("up"):
-		animated_sprite.play("walk")
-	elif Input.is_action_pressed("down"):
-		animated_sprite.play("walk")
+		animated_sprite.play("walk_right")
 	else:
 		animated_sprite.play("idle")
 

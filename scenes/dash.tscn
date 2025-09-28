@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cug3xnb0wbcm6"]
+
+[ext_resource type="Texture2D" uid="uid://cwa1n5anlwijc" path="res://assets/UI/lightning.png" id="1_qeljt"]
+[ext_resource type="FontFile" uid="uid://b74qkklp8b0ms" path="res://assets/Fonts/PixelOperator8.ttf" id="2_6xhjm"]
+
+[node name="Dash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dash" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_qeljt")
+
+[node name="Label" type="Label" parent="Dash"]
+offset_left = 156.00003
+offset_top = -51.999985
+offset_right = 380.00003
+offset_bottom = 76.000015
+theme_override_fonts/font = ExtResource("2_6xhjm")
+theme_override_font_sizes/font_size = 128
+text = "x0"

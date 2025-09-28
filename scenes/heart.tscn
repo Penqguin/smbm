@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck1cc6lg8pid8"]
+
+[ext_resource type="Texture2D" uid="uid://dcvhlydfppejm" path="res://assets/UI/heart.png" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://b74qkklp8b0ms" path="res://assets/Fonts/PixelOperator8.ttf" id="2_6fi6k"]
+
+[node name="Heart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1052.0
+offset_bottom = -548.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(-0.99993896, -0.9999962)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_oo0fn")
+
+[node name="Label" type="Label" parent="Heart"]
+offset_left = 137.14268
+offset_top = -51.428585
+offset_right = 361.14267
+offset_bottom = 76.57141
+theme_override_fonts/font = ExtResource("2_6fi6k")
+theme_override_font_sizes/font_size = 90
+text = "x0"

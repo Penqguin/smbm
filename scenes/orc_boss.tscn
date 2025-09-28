@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqb4gbxpdaojl"]
+
+[ext_resource type="Texture2D" uid="uid://dlataa7kcvr0v" path="res://assets/Orc_Boss_Final.png" id="1_poiny"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csrsf"]
+radius = 14.646599
+height = 31.713104
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_poiny"]
+radius = 14.826462
+height = 32.96541
+
+[node name="OrcBoss" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+scale = Vector2(1.09375, 1.1875)
+texture = ExtResource("1_poiny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.62950134, -16.820145)
+shape = SubResource("CapsuleShape2D_csrsf")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.53957367, -16.636932)
+shape = SubResource("CapsuleShape2D_poiny")

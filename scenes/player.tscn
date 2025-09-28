@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1pd31l747n3k"]
+[gd_scene load_steps=39 format=3 uid="uid://b1pd31l747n3k"]
 
 [ext_resource type="Texture2D" uid="uid://dfjt7n8cu3quh" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://cr2lu64vh3ob8" path="res://scripts/player.gd" id="1_qhqgy"]
@@ -231,6 +231,10 @@ animations = [{
 radius = 4.0
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
+radius = 4.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qhqgy")
 
@@ -249,3 +253,9 @@ position = Vector2(0, -8)
 
 [node name="Melee-attack" parent="." instance=ExtResource("5_qlg0r")]
 position = Vector2(0, -8)
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["player_hurtbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_fjrip")

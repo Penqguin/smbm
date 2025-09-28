@@ -67,7 +67,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xtaw4"]
 radius = 9.899495
 
-[node name="Melee-attack" type="Area2D"]
+[node name="Melee-attack" type="Area2D" groups=["player_hitbox"]]
 script = ExtResource("1_bd5lp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -22,6 +22,14 @@ PlayerState="*res://scripts/player_state.gd"
 
 project/assembly_name="Sacrafices-must-be-made"
 
+[global_group]
+
+main_character="you"
+player_hurtbox=""
+player_hitbox=""
+enemy_hitbox=""
+enemy_hurtboxes=""
+
 [input]
 
 left={

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqbrt1rrkrsw0"]
+[gd_scene load_steps=13 format=3 uid="uid://bqbrt1rrkrsw0"]
 
 [ext_resource type="Texture2D" uid="uid://yuy71tdcm8vh" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc.png" id="1_2byfh"]
 [ext_resource type="Script" uid="uid://e5sb04o6krhv" path="res://scripts/orc.gd" id="1_bfp0d"]
@@ -7,23 +7,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bfp0d"]
 radius = 6.0
 height = 18.0
-
-[sub_resource type="Animation" id="Animation_hu8b3"]
-resource_name = "idle"
-length = 0.75
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
 
 [sub_resource type="Animation" id="Animation_s5mlm"]
 length = 0.001
@@ -50,23 +33,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_2byfh"]
-resource_name = "run"
-length = 0.55
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bfp0d"]
@@ -101,6 +67,40 @@ tracks/0/keys = {
 "values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
 }
 
+[sub_resource type="Animation" id="Animation_hu8b3"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_2byfh"]
+resource_name = "run"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xme4o"]
 _data = {
 &"RESET": SubResource("Animation_s5mlm"),
@@ -111,6 +111,10 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_duj3f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu8b3"]
+radius = 6.0
+height = 18.0
 
 [node name="Orc" type="CharacterBody2D"]
 script = ExtResource("1_bfp0d")
@@ -138,3 +142,11 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="OrcAtk" parent="." instance=ExtResource("3_hu8b3")]
 position = Vector2(-1, -9)
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["enemy_hurtboxes"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_hu8b3")
+
+[connection signal="area_shape_entered" from="OrcAtk" to="OrcAtk" method="_on_area_shape_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf5y3itxyxb11"]
+
+[ext_resource type="Script" uid="uid://cpbhhhd7af3nj" path="res://scripts/arrow.gd" id="1_23jat"]
+[ext_resource type="Texture2D" uid="uid://c0x8xpqiqufff" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="1_umosx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23jat"]
+size = Vector2(25.348724, 4.010536)
+
+[node name="Arrow" type="Area2D"]
+script = ExtResource("1_23jat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.4080391)
+scale = Vector2(1.4375, 1.2755024)
+texture = ExtResource("1_umosx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.3256378, -0.005268097)
+shape = SubResource("RectangleShape2D_23jat")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

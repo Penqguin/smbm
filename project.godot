@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sacrafices-must-be-made"
-run/main_scene="uid://btq15f47mn18a"
+run/main_scene="uid://y7vaho4iy6pr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]

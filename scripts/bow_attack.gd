@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var attack_cooldown_timer = $Attack_cooldown
 @onready var attack_animation = $AnimationPlayer
+@export var Arrow : PackedScene
+
 
 func _process(delta):
 	# Orient the weapon towards the mouse
@@ -21,3 +23,11 @@ func bow_attack():
 func _on_attack_cooldown_timeout() -> void:
 	# Set the global state back to false
 	PlayerState.is_attacking = false
+
+func shoot():
+	var b = Arrow.instantiate()
+	add_child(b)
+	b.transform = $Marker2D.transform
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	shoot()

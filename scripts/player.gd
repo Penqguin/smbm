@@ -69,7 +69,7 @@ func playerDash(d):
 func die() -> void:
 	queue_free()
 			
-func takeDamage() -> void:
+func take_damage() -> void:
 	hp -= 1
 	if hp <= 0:
 		die()

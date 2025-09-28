@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=4 uid="uid://btq15f47mn18a"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://j7ry0yd1818h" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b1pd31l747n3k" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://d0fdkbvtt4ttv" path="res://assets/Tilemaps/Dungeon_Tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ck1cc6lg8pid8" path="res://scenes/heart.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cug3xnb0wbcm6" path="res://scenes/dash.tscn" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://m03w6n3lrg8y" path="res://scenes/game_manager.gd" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bqbrt1rrkrsw0" path="res://scenes/orc.tscn" id="7_u5sy4"]
-[ext_resource type="PackedScene" path="res://scenes/orc_boss.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dqb4gbxpdaojl" path="res://scenes/orc_boss.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -245,7 +245,7 @@ layout_mode = 2
 script = ExtResource("6_p57ef")
 
 [node name="Orc" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(110, 16)
+position = Vector2(64, 11)
 
 [node name="OrcBoss" parent="." instance=ExtResource("8_gee14")]
 position = Vector2(1420, 440)

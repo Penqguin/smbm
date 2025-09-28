@@ -13,4 +13,4 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("player_hurtbox"):
-		area.get_parent().take_damage(1) # Or whatever damage
+		area.get_parent().take_damage() # Or whatever damagedsw

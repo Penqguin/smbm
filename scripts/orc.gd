@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @onready var animation_player = $AnimationPlayer
 @export var player_node: NodePath
-@onready var player = get_node(player_node)
+@onready var player = get_tree().get_first_node_in_group("main_character")
 @onready var OrcAtk = $OrcAtk
 func die() -> void:
 	queue_free()

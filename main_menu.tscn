@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://y7vaho4iy6pr"]
+
+[sub_resource type="GDScript" id="GDScript_vue75"]
+script/source = "extends Node2D
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/game.tscn\")
+
+func _on_credits_pressed() -> void:
+	print(\"Click2\") # Replace with function body.
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+"
+
+[node name="MainMenu" type="Node2D"]
+script = SubResource("GDScript_vue75")
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 547.0
+offset_bottom = 259.0
+
+[node name="Start" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 165.0
+offset_right = 826.0
+offset_bottom = 255.0
+text = "Start"
+
+[node name="Credits" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.3500001
+anchor_top = 0.82500005
+anchor_right = 3.3500001
+anchor_bottom = 0.82500005
+offset_left = -1383.7501
+offset_top = 143.67499
+offset_right = -1033.7501
+offset_bottom = 233.67499
+text = "Credits"
+
+[node name="Exit" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.700001
+anchor_top = 9.475
+anchor_right = 12.700001
+anchor_bottom = 9.475
+offset_left = -6481.5005
+offset_top = -1946.9751
+offset_right = -6131.5005
+offset_bottom = -1856.9751
+text = "Exit"
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ButtonManager/Exit" to="." method="_on_exit_pressed"]

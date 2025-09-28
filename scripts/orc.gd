@@ -1,11 +1,20 @@
 extends CharacterBody2D
 
+@export var orc_health = 500
 @export var movement_speed = 100
 @export var attack_range = 100
 
 @onready var animation_player = $AnimationPlayer
-@onready var player = $"."
+@export var player_node: NodePath
+@onready var player = get_node(player_node)
 @onready var OrcAtk = $OrcAtk
+func die() -> void:
+	queue_free()
+	
+func take_damage(amount: int) -> void:
+	orc_health -= amount
+	if orc_health <= 0:
+		die()
 
 func _physics_process(delta):
 	# Get the vector from the enemy to the player

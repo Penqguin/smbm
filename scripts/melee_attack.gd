@@ -24,4 +24,4 @@ func _on_attack_cooldown_timeout() -> void:
 
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("enemy_hurtbox"):
-		area.get_parent().take_damage(50) #take damage
+		area.get_parent().take_damage(get_parent().atk)

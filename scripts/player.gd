@@ -65,7 +65,15 @@ func playerDash(d):
 		if regenTimer > dashRegenTime:
 			currentDashes += 1
 			regenTimer = 0
-		
+
+func die() -> void:
+	queue_free()
+			
+func takeDamage() -> void:
+	hp -= 1
+	if hp <= 0:
+		die()
+	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed

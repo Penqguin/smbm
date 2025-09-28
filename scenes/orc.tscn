@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqbrt1rrkrsw0"]
+[gd_scene load_steps=14 format=3 uid="uid://bqbrt1rrkrsw0"]
 
 [ext_resource type="Texture2D" uid="uid://yuy71tdcm8vh" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc.png" id="1_2byfh"]
 [ext_resource type="Script" uid="uid://e5sb04o6krhv" path="res://scripts/orc.gd" id="1_bfp0d"]
 [ext_resource type="PackedScene" uid="uid://dx87t4eqbvhml" path="res://scenes/orc_atk.tscn" id="3_hu8b3"]
+[ext_resource type="PackedScene" uid="uid://b1pd31l747n3k" path="res://scenes/player.tscn" id="4_s5mlm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bfp0d"]
 radius = 6.0
@@ -118,6 +119,7 @@ height = 18.0
 
 [node name="Orc" type="CharacterBody2D"]
 script = ExtResource("1_bfp0d")
+player_node = NodePath("Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -148,5 +150,7 @@ position = Vector2(-1, -9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_hu8b3")
+
+[node name="Player" parent="." instance=ExtResource("4_s5mlm")]
 
 [connection signal="area_shape_entered" from="OrcAtk" to="OrcAtk" method="_on_area_shape_entered"]

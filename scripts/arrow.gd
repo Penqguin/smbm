@@ -7,5 +7,5 @@ func _physics_process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		body.queue_free()
+		body.take_damage((get_parent().atk)*2)
 	queue_free()

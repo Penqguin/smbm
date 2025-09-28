@@ -14,6 +14,10 @@ config/name="Sacrafices-must-be-made"
 run/main_scene="uid://btq15f47mn18a"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[autoload]
+
+PlayerState="*res://scripts/player_state.gd"
+
 [dotnet]
 
 project/assembly_name="Sacrafices-must-be-made"

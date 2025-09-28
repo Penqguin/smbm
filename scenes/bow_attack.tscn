@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpcxsg7aihrus"]
+[gd_scene load_steps=6 format=3 uid="uid://cpcxsg7aihrus"]
 
 [ext_resource type="Script" uid="uid://dglvetblwwdy1" path="res://scripts/bow_attack.gd" id="1_l5ydy"]
 [ext_resource type="Texture2D" uid="uid://oajncor2q32w" path="res://assets/attacks/Bow attack.png" id="1_qvuqu"]
-[ext_resource type="PackedScene" uid="uid://bf5y3itxyxb11" path="res://scenes/arrow.tscn" id="2_ixew5"]
 
 [sub_resource type="Animation" id="Animation_l5ydy"]
 resource_name = "Bow_attack"
@@ -43,7 +42,6 @@ _data = {
 
 [node name="Bow_attack" type="Node2D"]
 script = ExtResource("1_l5ydy")
-Arrow = ExtResource("2_ixew5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6, -1)
@@ -58,8 +56,4 @@ libraries = {
 [node name="Attack_cooldown" type="Timer" parent="."]
 wait_time = 0.6
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(15, 0)
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://btq15f47mn18a"]
+[gd_scene load_steps=8 format=4 uid="uid://btq15f47mn18a"]
 
+[ext_resource type="Script" uid="uid://j7ry0yd1818h" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b1pd31l747n3k" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://d0fdkbvtt4ttv" path="res://assets/Tilemaps/Dungeon_Tileset.png" id="2_yqjtg"]
 
@@ -168,6 +169,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
 
 [node name="Player" parent="." groups=["main_character"] instance=ExtResource("1_uwrxv")]
 position = Vector2(0, -1)
